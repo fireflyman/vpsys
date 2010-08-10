@@ -1,0 +1,65 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bndid: MyString
+  cardtype: MyString
+  cardno: MyString
+  cmpid: MyString
+  ctrid: MyString
+  shop: MyString
+  cname: MyString
+  cname: MyString
+  ename: MyString
+  ename: MyString
+  gender: MyString
+  bdate: 2010-08-10 14:21:29
+  idcard: MyString
+  city: MyString
+  marr: MyString
+  degree: MyString
+  occup: MyString
+  income: MyString
+  address1: MyText
+  address2: MyText
+  address: MyText
+  hometel: MyString
+  offitel: MyString
+  bpno: MyString
+  email: MyString
+  grade: MyString
+  ddate: 2010-08-10 14:21:29
+  tdate: 2010-08-10 14:21:29
+  ddate: 2010-08-10 14:21:29
+  udate: 2010-08-10 14:21:29
+
+two:
+  bndid: MyString
+  cardtype: MyString
+  cardno: MyString
+  cmpid: MyString
+  ctrid: MyString
+  shop: MyString
+  cname: MyString
+  cname: MyString
+  ename: MyString
+  ename: MyString
+  gender: MyString
+  bdate: 2010-08-10 14:21:29
+  idcard: MyString
+  city: MyString
+  marr: MyString
+  degree: MyString
+  occup: MyString
+  income: MyString
+  address1: MyText
+  address2: MyText
+  address: MyText
+  hometel: MyString
+  offitel: MyString
+  bpno: MyString
+  email: MyString
+  grade: MyString
+  ddate: 2010-08-10 14:21:29
+  tdate: 2010-08-10 14:21:29
+  ddate: 2010-08-10 14:21:29
+  udate: 2010-08-10 14:21:29

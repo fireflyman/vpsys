@@ -1,0 +1,78 @@
+<h1>Listing vipers</h1>
+
+<table>
+  <tr>
+    <th>Bndid</th>
+    <th>Cardtype</th>
+    <th>Cardno</th>
+    <th>Cmpid</th>
+    <th>Ctrid</th>
+    <th>Shop</th>
+    <th>Cname</th>
+    <th>Cname</th>
+    <th>Ename</th>
+    <th>Ename</th>
+    <th>Gender</th>
+    <th>Bdate</th>
+    <th>Idcard</th>
+    <th>City</th>
+    <th>Marr</th>
+    <th>Degree</th>
+    <th>Occup</th>
+    <th>Income</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>Address</th>
+    <th>Hometel</th>
+    <th>Offitel</th>
+    <th>Bpno</th>
+    <th>Email</th>
+    <th>Grade</th>
+    <th>Adate</th>
+    <th>Tdate</th>
+    <th>Ddate</th>
+    <th>Udate</th>
+  </tr>
+
+<% @vipers.each do |viper| %>
+  <tr>
+    <td><%=h viper.bndid %></td>
+    <td><%=h viper.cardtype %></td>
+    <td><%=h viper.cardno %></td>
+    <td><%=h viper.cmpid %></td>
+    <td><%=h viper.ctrid %></td>
+    <td><%=h viper.shop %></td>
+    <td><%=h viper.cname %></td>
+    <td><%=h viper.cname %></td>
+    <td><%=h viper.ename %></td>
+    <td><%=h viper.ename %></td>
+    <td><%=h viper.gender %></td>
+    <td><%=h viper.bdate %></td>
+    <td><%=h viper.idcard %></td>
+    <td><%=h viper.city %></td>
+    <td><%=h viper.marr %></td>
+    <td><%=h viper.degree %></td>
+    <td><%=h viper.occup %></td>
+    <td><%=h viper.income %></td>
+    <td><%=h viper.address1 %></td>
+    <td><%=h viper.address2 %></td>
+    <td><%=h viper.address %></td>
+    <td><%=h viper.hometel %></td>
+    <td><%=h viper.offitel %></td>
+    <td><%=h viper.bpno %></td>
+    <td><%=h viper.email %></td>
+    <td><%=h viper.grade %></td>
+    <td><%=h viper.adate %></td>
+    <td><%=h viper.tdate %></td>
+    <td><%=h viper.ddate %></td>
+    <td><%=h viper.udate %></td>
+    <td><%= link_to 'Show', viper %></td>
+    <td><%= link_to 'Edit', edit_viper_path(viper) %></td>
+    <td><%= link_to 'Destroy', viper, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New viper', new_viper_path %>
