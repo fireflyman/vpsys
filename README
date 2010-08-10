@@ -1,3 +1,6 @@
 == Welcome to VPSYS
 第一步是開發:
-VIP會員模板
+VIP會員模板 --> will_paginate
+
+第二步:
+權限認證模板-->restful-authentication + declarative authorization
