@@ -1,0 +1,125 @@
+<% form_for(@viper) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label "卡屬品牌" %><br />
+    <%= f.select :bndid, [['火星','qs'],['雞眼網','JE'],['豆瓣','douban']], {:include_blank=>"请选择",:selected => 0} %>
+  </p>
+  <p>
+    <%= f.label :類別 %><br />
+    <%= f.text_field :cardtype %>
+  </p>
+  <p>
+    <%= f.label :卡號 %><br />
+    <%= f.text_field :cardno %>
+  </p>
+  <p>
+    <%= f.label :發卡公司 %><br />
+    <%= f.text_field :cmpid %>
+  </p>
+  <p>
+    <%= f.label :發卡口岸 %><br />
+    <%= f.text_field :ctrid %>
+  </p>
+  <p>
+    <%= f.label :發卡店鋪 %><br />
+    <%= f.text_field :shop %>
+  </p>
+  <p>
+    <%= f.label :卡主中文姓名 %><br />
+    <%= f.text_field :cname %>
+  </p>
+  <p>
+    <%= f.label :英文名 %><br />
+    <%= f.text_field :ename %>
+  </p>
+  <p>
+    <%= f.label :性別 %><br />
+    <%= f.text_field :gender %>
+  </p>
+  <p>
+    <%= f.label :生日 %><br />
+      <%= f.date_select("bdate",:start_year => 1900,
+                                    :include_blank => true )  %>
+  </p>
+  <p>
+    <%= f.label :身份證 %><br />
+    <%= f.text_field :idcard %>
+  </p>
+  <p>
+    <%= f.label :城市 %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :婚否 %><br />
+    <%= f.select :marr, [['已婚','1'],['未婚','0']], {:include_blank=>"请选择",:selected => 0} %>
+  </p>
+  <p>
+    <%= f.label :學歷 %><br />
+    <%= f.select :degree, [['大專或以上','0'],['大專以下','1']], {:include_blank=>"请选择",:selected => 0} %>
+  </p>
+  <p>
+    <%= f.label :職業 %><br />
+    <%= f.select :occup, [['程序員','Superman'],['非程序員','Monster']], {:include_blank=>"请选择",:selected => 0} %>
+  </p>
+  <p>
+    <%= f.label :月收入 %><br />
+    <%= f.select :income, [['無收入','0'],['<=1000','1'],['1000~3000','2'],['>3000','3']], {:include_blank=>"请选择",:selected => 0} %>
+  </p>
+  <p>
+    <%= f.label :地址1 %><br />
+    <%= f.text_area :address1 %>
+  </p>
+  <p>
+    <%= f.label :地址2 %><br />
+    <%= f.text_area :address2 %>
+  </p>
+  <p>
+    <%= f.label :地址%><br />
+    <%= f.text_area :address %>
+  </p>
+  <p>
+    <%= f.label :住宅電話 %><br />
+    <%= f.text_field :hometel %>
+  </p>
+  <p>
+    <%= f.label :辦公電話 %><br />
+    <%= f.text_field :offitel %>
+  </p>
+  <p>
+    <%= f.label :手機 %><br />
+    <%= f.text_field :bpno %>
+  </p>
+  <p>
+    <%= f.label :郵件l %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :卡等級 %><br />
+    <%= f.select :grade, [['Ruby卡','0'],['Rails卡','1'],['Sinatra卡','2']], {:include_blank=>"请选择",:selected => 0} %>
+  </p>
+  <p>
+    <%= f.label :申請日期 %><br />
+      <%= f.date_select("adate",:start_year => 1995, :use_month_numbers => true,
+                                    :include_blank => true )  %>
+  </p>
+  <p>
+    <%= f.label :生效日期 %><br />
+    <%= f.date_select("tdate",:start_year => 1995, :use_month_numbers => true,
+                                    :include_blank => true )  %>
+  </p>
+  <p>
+    <%= f.label :失效日期 %><br />
+      <%= f.date_select("ddate",:start_year => 1995, :use_month_numbers => true,
+                                    :include_blank => true )  %>
+  </p>
+  <p>
+    <%= f.label :升級日期 %><br />
+      <%= f.date_select("udate",:start_year => 1995, :use_month_numbers => true,
+                                    :include_blank => true )  %>
+  </p>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>
+

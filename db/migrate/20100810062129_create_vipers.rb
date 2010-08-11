@@ -8,8 +8,6 @@ class CreateVipers < ActiveRecord::Migration
       t.string :ctrid
       t.string :shop
       t.string :cname
-      t.string :cname
-      t.string :ename
       t.string :ename
       t.string :gender
       t.datetime :bdate

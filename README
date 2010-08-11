@@ -1,6 +1,52 @@
 == Welcome to VPSYS
 第一步是開發:
 VIP會員模板 --> will_paginate
+ruby script/generate scaffold Viper 
+bndid:string 
+cardtype:string 
+cardno:string 
+cmpid:string 
+ctrid:string 
+shop:string 
+cname:string 
+cname:string 
+ename:string 
+ename:string 
+gender:string 
+bdate:datetime 
+idcard:string 
+city:string 
+marr:string 
+degree:string 
+occup:string 
+income:string 
+address1:text 
+address2:text 
+address:text 
+hometel:string 
+offitel:string 
+bpno:string 
+email:string 
+grade:string 
+adate:datetime 
+
 
 第二步:
 權限認證模板-->restful-authentication + declarative authorization
+
+ruby script/generate authenticated user sessions
+rake db:migrate
+
+ruby script/generate migration AddRolesToUsers roles:text
+
+class AddRolesToUsers < ActiveRecord::Migration
+  def self.up
+    add_column :users, :roles, :string, :default => "qsguy"
+  end
+
+  def self.down
+    remove_column :users, :roles
+  end
+end
+
+rake db:migrate
