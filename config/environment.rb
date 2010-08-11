@@ -10,7 +10,8 @@ Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
-
+    config.load_once_paths += %W( #{RAILS_ROOT}/lib )
+    #保证declarative_authorization插件不会加载出错
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
