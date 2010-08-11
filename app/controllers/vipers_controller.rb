@@ -3,6 +3,10 @@ class VipersController < ApplicationController
   # GET /vipers.xml
   def index
     @vipers = Viper.all
+    @vipers = Viper.paginate :page =>params[:page], 
+                                     :order => 'created_at desc', 
+                                    # :conditions => conditions,
+                                     :per_page => 2
 
     respond_to do |format|
       format.html # index.html.erb

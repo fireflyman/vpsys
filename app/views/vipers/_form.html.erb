@@ -1,13 +1,12 @@
 <% form_for(@viper) do |f| %>
   <%= f.error_messages %>
-
   <p>
     <%= f.label "卡屬品牌" %><br />
     <%= f.select :bndid, [['火星','qs'],['雞眼網','JE'],['豆瓣','douban']], {:include_blank=>"请选择",:selected => 0} %>
   </p>
   <p>
-    <%= f.label :類別 %><br />
-    <%= f.text_field :cardtype %>
+    <%= f.label :卡等級 %><br />
+    <%= f.select :grade, [['Ruby卡','0'],['Rails卡','1'],['Sinatra卡','2']], {:include_blank=>"请选择",:selected => 0} %>
   </p>
   <p>
     <%= f.label :卡號 %><br />
@@ -93,10 +92,6 @@
   <p>
     <%= f.label :郵件l %><br />
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :卡等級 %><br />
-    <%= f.select :grade, [['Ruby卡','0'],['Rails卡','1'],['Sinatra卡','2']], {:include_blank=>"请选择",:selected => 0} %>
   </p>
   <p>
     <%= f.label :申請日期 %><br />

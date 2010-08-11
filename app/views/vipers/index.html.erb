@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Bndid</th>
-    <th>Cardtype</th>
+    <th>Grade</th>
     <th>Cardno</th>
     <th>Cname</th>
   </tr>
@@ -11,7 +11,7 @@
 <% @vipers.each do |viper| %>
   <tr>
     <td><%=h viper.bndid %></td>
-    <td><%=h viper.cardtype %></td>
+    <td><%=h viper.grade %></td>
     <td><%=h viper.cardno %></td>
     <td><%=h viper.cname %></td>
     <td><%= link_to 'Show', viper %></td>
@@ -23,4 +23,11 @@
 
 <br />
 
+<%= will_paginate @orders ,
+    :inner_window => 1,  
+    :outer_window => 1,  
+    :prev_label => 'Previous',  
+    :next_label => 'Next'
+  %>
+<hr>
 <%= link_to 'New viper', new_viper_path %>
