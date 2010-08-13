@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100810110103) do
+ActiveRecord::Schema.define(:version => 20100813071425) do
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(:version => 20100810110103) do
     t.datetime "udate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "point",      :default => 0
+    t.float    "discount",   :default => 0.85
+    t.float    "tolamount"
   end
 
 end

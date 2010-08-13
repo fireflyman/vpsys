@@ -3,8 +3,10 @@ class VipersController < ApplicationController
   # GET /vipers.xml
   def index
     @vipers = Viper.all
+    sort_by = params[:sort_by]
     @vipers = Viper.paginate :page =>params[:page], 
-                                     :order => 'created_at desc', 
+                                     #:order => 'created_at desc', 
+                                     :order => sort_by, 
                                     # :conditions => conditions,
                                      :per_page => 2
 
@@ -87,3 +89,10 @@ class VipersController < ApplicationController
     end
   end
 end
+
+=begin
+#參考排序功能的實現
+    <th><a href="?sort_by=title">Title</a></th>
+    <th><a href="?sort_by=publisher_id">Publisher</a></th>
+    <th><a href="?sort_by=isbn">Isbn</a></th>
+=end

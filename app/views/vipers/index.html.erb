@@ -2,10 +2,11 @@
 
 <table>
   <tr>
-    <th>Bndid</th>
-    <th>Grade</th>
-    <th>Cardno</th>
-    <th>Cname</th>
+    <th>品牌</th>
+    <th>卡等級</th>
+    <th><a href="?sort_by=cardno">卡號</th>
+    <th>中文名</th>
+    <th>動作任務區</th>
   </tr>
 
 <% @vipers.each do |viper| %>
@@ -14,9 +15,9 @@
     <td><%=h viper.grade %></td>
     <td><%=h viper.cardno %></td>
     <td><%=h viper.cname %></td>
-    <td><%= link_to 'Show', viper %></td>
-    <td><%= link_to 'Edit', edit_viper_path(viper) %></td>
-    <td><%= link_to 'Destroy', viper, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', viper %> |
+    <%= link_to 'Edit', edit_viper_path(viper) %> |
+    <%= link_to 'Destroy', viper, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -31,3 +32,43 @@
   %>
 <hr>
 <%= link_to 'New viper', new_viper_path %>
+
+
+
+<% title "我的VIP客戶"  %>
+<table class="columns" >
+  <tr>
+    <td>
+      <h3>最新客戶</h3>
+      <ul class="poker">
+        <% @vipers = Viper.latest.each do |viper| %>
+          <li><%= link_to viper.cname,viper %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td>
+      <h3>消费排名</h3>
+      <ul class="poker">
+        <% @vipers = Viper.hot.each do |viper| %>
+          <li><%= link_to viper.cname+ "(累计消费额：#{viper.tolamount})",viper %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>高分客戶</h3>
+      <ul class="poker">
+        <% @vipers = Viper.reward.each do |viper| %>
+          <li><%= link_to viper.cname+ "(積分：#{viper.point})" ,viper %></li>
+        <% end %>
+      </ul>
+    </td>
+    </tr>
+ <div>
+  <%#= tag_cloud @tags %>
+</div>
+<hr>
+<%= link_to '新增VIP客户 ', new_viper_path %>
+<%# keywords @tags.to_sentence  %>
+<% #description "RailsKiller fireflyman， rails版的微型维基" %>

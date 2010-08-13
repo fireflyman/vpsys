@@ -51,19 +51,19 @@
   </p>
   <p>
     <%= f.label :婚否 %><br />
-    <%= f.select :marr, [['已婚','1'],['未婚','0']], {:include_blank=>"请选择",:selected => 0} %>
+    <%= f.select :marr, [['已婚','1'],['未婚','0']] %>
   </p>
   <p>
     <%= f.label :學歷 %><br />
-    <%= f.select :degree, [['大專或以上','0'],['大專以下','1']], {:include_blank=>"请选择",:selected => 0} %>
+    <%= f.select :degree, [['大專或以上','0'],['大專以下','1']] %>
   </p>
   <p>
     <%= f.label :職業 %><br />
-    <%= f.select :occup, [['程序員','Superman'],['非程序員','Monster']], {:include_blank=>"请选择",:selected => 0} %>
+    <%= f.select :occup, [['程序員','Superman'],['非程序員','Monster']] %>
   </p>
   <p>
     <%= f.label :月收入 %><br />
-    <%= f.select :income, [['無收入','0'],['<=1000','1'],['1000~3000','2'],['>3000','3']], {:include_blank=>"请选择",:selected => 0} %>
+    <%= f.select :income, [['無收入','0'],['<=1000','1'],['1000~3000','2'],['>3000','3']] %>
   </p>
   <p>
     <%= f.label :地址1 %><br />
