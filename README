@@ -1,6 +1,6 @@
 == Welcome to VPSYS
-第一步是開發:
-VIP會員模板 --> will_paginate
+
+一.VIP會員模板 --> will_paginate
 ruby script/generate scaffold Viper 
 bndid:string 
 cardtype:string 
@@ -31,8 +31,8 @@ grade:string
 adate:datetime 
 
 
-第二步:
-權限認證模板-->restful-authentication + declarative authorization
+
+二.權限認證模板-->restful-authentication + declarative authorization
 
 ruby script/generate authenticated user sessions
 rake db:migrate
@@ -100,3 +100,67 @@ end
 #角色就是一定数量的权限的集合.了解完这些,让我们编写些授权规则吧.在默认情况下,已经为我们分配了一个guest角色.它将在请求和任何用户都没有关联或当一个用户没有任何角色时被调用.
 #因此,如果我们的应用程序有一些公共页面,可以用guest来让那些没有登录的用户实现访问.现在我们的应用还很小很小,只有两个资源(User与 Session).为了让用户自由登录,我们不应该在Session中设置授权控制.
 #User资源,我们打算让index可以让任何人访问,show与 edit只有该用户才能访问到——这当然要求登录成为wikier,要求基本不能进行属性检查以判断其是否同一个人！
+
+三.建立积分机制
+由于前台问题还没协商,因此此部分只增加了三个字段:
+point | discount | tolamount
+具体开发计划推迟到前台协商清楚后...
+
+四.增加分类与Tag
+
+1.目前分类已经处理完,如下:
+
+/models/viper.rb
+    named_scope :reward, :select => "id,cname,point",:limit=> 10,:order =>"point DESC"
+    named_scope :latest, :select => "id,cname,updated_at",:limit=> 10,:order =>"updated_at DESC"
+    named_scope :hot, :select => "id,cname,tolamount",:limit=> 10,:order =>"tolamount DESC"
+(备注:此部分的设定是暂时的,因为急需一个大概的版面,具体的修改会根据用户进一步需求...)
+/views/vipers/index.rhtml
+<% title "我的VIP客戶"  %>
+<table class="columns" >
+  <tr>
+    <td>
+      <h3>最新客戶</h3>
+      <ul class="poker">
+        <% @vipers = Viper.latest.each do |viper| %>
+          <li><%= link_to viper.cname,viper %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td>
+      <h3>消费排名</h3>
+      <ul class="poker">
+        <% @vipers = Viper.hot.each do |viper| %>
+          <li><%= link_to viper.cname+ "(累计消费额：#{viper.tolamount})",viper %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>高分客戶</h3>
+      <ul class="poker">
+        <% @vipers = Viper.reward.each do |viper| %>
+          <li><%= link_to viper.cname+ "(積分：#{viper.point})" ,viper %></li>
+        <% end %>
+      </ul>
+    </td>
+    </tr>
+ <div>
+  <%#= tag_cloud @tags %>
+</div>
+<hr>
+<%= link_to '新增VIP客户 ', new_viper_path %>
+<%# keywords @tags.to_sentence  %>
+<% #description "RailsKiller fireflyman， rails版的微型维基" %>
+
+2.标签Tag功能
+这部分功能准备用插件-->acts_as_taggable_on_steroids来开发,具体参考:
+http://www.cnblogs.com/rubylouvre/archive/2009/07/01/1511559.html
+
+不过在进一步分析后,发现Tag可能对该项目的开发没多发作用,因此目前处于后备任务..
+
+五.搜索功能开发
+目前正在选型中:acts_as_ferret或者thinking sphinx
+
+初步确认ferret是不准备使用的了...研究thinking sphinx的用法

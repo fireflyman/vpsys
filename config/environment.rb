@@ -14,7 +14,9 @@ Rails::Initializer.run do |config|
     #保证declarative_authorization插件不会加载出错
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-
+  #config.gem 'ferret'
+ # config.gem 'rmmseg'
+  #config.gem 'acts_as_ferret'
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"

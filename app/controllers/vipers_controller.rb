@@ -1,4 +1,7 @@
+
 class VipersController < ApplicationController
+    
+
   # GET /vipers
   # GET /vipers.xml
   def index
@@ -87,7 +90,8 @@ class VipersController < ApplicationController
       format.html { redirect_to(vipers_url) }
       format.xml  { head :ok }
     end
-  end
+end
+
 end
 
 =begin
